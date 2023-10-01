@@ -84,7 +84,7 @@ const Navbar = () => {
           <div className="hidden md:flex flex-row items-center border border-slate-200 rounded-xl bg-[rgba(250, 250, 250, 0.50)] text-muted-foreground px-2 gap-x-1 ">
             <Search className="h-4 w-4" />
             <Input
-              className="focus:outline-none bg-none active:outline-none border-none p-0"
+              className="focus:outline-none bg-none active:outline-none border-none p-0 "
               placeholder="search"
               disabled={path === '/about'}
             />

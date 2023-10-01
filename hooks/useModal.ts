@@ -7,7 +7,7 @@ interface useModalStore{
     type: modalType | null
 }
 
-type modalType = 'auth-modal'
+type modalType = 'auth-modal' | 'add-post'
 
 const useModal = create<useModalStore>((set) => ({
     isOpen: false,

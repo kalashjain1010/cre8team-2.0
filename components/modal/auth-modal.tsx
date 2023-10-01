@@ -18,6 +18,7 @@ const AuthModal = () => {
         appearance={{
           theme: ThemeSupa,
         }}
+
       />
     </Modal>
   );

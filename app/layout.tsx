@@ -5,7 +5,6 @@ import { Poppins } from "next/font/google";
 import ModalProvider from "@/provider/modal-provider";
 import UserProvider from "@/provider/user-provider";
 import { Toaster } from "react-hot-toast";
-import Footer from "@/components/ui/Footer";
 
 const font = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -29,7 +28,6 @@ export default function RootLayout({
           {children}
         </body>
       </UserProvider>
-          {/* <Footer /> */}
     </html>
   );
 }

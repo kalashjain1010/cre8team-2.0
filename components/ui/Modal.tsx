@@ -7,10 +7,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import Image from "next/image";
 import React from "react";
 
 interface ModalProps {
-  title: string;
+  title?: string;
   description?: string;
   isOpen: boolean;
   children: React.ReactNode;
@@ -34,7 +35,14 @@ const Modal: React.FC<ModalProps> = ({
     <Dialog open={isOpen} onOpenChange={onChange}>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
+          <DialogTitle>
+            {" "}
+            {title ? (
+              <p>{title}</p>
+            ) : (
+              <Image src={"/logo.svg"} alt="logo" width={150} height={40} />
+            )}
+          </DialogTitle>
           <DialogDescription>{description}</DialogDescription>
         </DialogHeader>
         {children}
@@ -42,4 +50,4 @@ const Modal: React.FC<ModalProps> = ({
     </Dialog>
   );
 };
-export default Modal
+export default Modal;

@@ -1,23 +1,43 @@
-const Project = () => {
-  return (
-    <div className="h-[100%] md:h-screen border-solid border-2 border-gray-100 p-2 mt-4 rounded-2xl ">
-      <div>
-        <div className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-blue-50 ">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
-            Noteworthy technology acquisitions 2021
-          </h5>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam rerum beatae suscipit modi laboriosam aut deserunt repellendus perferendis ex iusto! Beatae illum tempora laborum, explicabo sint sunt qui odio molestias!
-          </p>
-            <div className="flex flex-row space-x-8">
-            <div>profile </div>
-          <button className="p-1 bg-blue-600 hover:bg-blue-800 text-white rounded-sm "> Interested</button>
-            </div>
-        </div>
-      </div>
-    </div>
-  );
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import client from "@/lib/db";
+import ProjectClient from "./project-client";
+
+export const dynamic = "force-dynamic";
+
+const Project = async () => {
+  const supabase = createServerComponentClient({ cookies });
+
+  // check if the user exist
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  // if user does not exist redirect to project page
+  if (!user) {
+    redirect("/projects");
+  }
+
+  // get the user
+  const userProfile = await client.user.findUnique({
+    where: {
+      authId: user.id,
+    },
+  });
+
+  if (!userProfile) {
+    return redirect("/projects");
+  }
+
+  // get the user made projects
+  const projects = await client.project.findMany({
+    include: {
+      requirements: true,
+      techs: true,
+      user: true,
+    },
+  });
+  return <ProjectClient projects={projects}/>;
 };
 export default Project;

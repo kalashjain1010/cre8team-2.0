@@ -2,67 +2,82 @@
 
 import React from "react";
 import Link from "next/link";
+import ServiceCard from "./ServiceCard";
+// import IMG from "../../public/about.svg"
+import { BsFacebook } from "react-icons/bs";
+import { BsTelegram } from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
+import {IoMdPeople} from "react-icons/io"
+import people from "../../public/people.png"
+import Image from "next/image";
 
 function AboutPage() {
   return (
     <>
-      <div className=" border-solid border-2 border-gray-100 h-[100%] lg:h-screen mt-4 rounded-3xl">
-        <div className="flex flex-wrap relative p-10 ">
-          <div className="p-2">
-            <h1 className="text-3xl font-[600] text-[#0671E0]">This is our page</h1>
-            <div className="pt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Laboriosam blanditiis deleniti unde rerum minus! Aliquid, sed
-              dolorem. Enim voluptate quasi labore doloribus, adipisci
-              exercitationem obcaecati quaerat ut voluptatibus sapiente
-              doloremque. Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Facere nemo blanditiis, repellendus quam odit dolorum! Illo,
-              enim quidem! Amet, quia deleniti. Sunt nesciunt minima rem
-              asperiores tempore eligendi voluptate a. Velit rem, nostrum
-              accusantium, hic repellendus laborum tempore ipsa, quidem
-              temporibus est id. Facilis tenetur earum in ipsum provident quidem
-              rem consequuntur nulla repellendus. Beatae cupiditate cumque
-              aliquid ad reiciendis. Quibusdam delectus aspernatur nam magnam
-              recusandae atque in libero veritatis fuga blanditiis error, animi
-              a, laboriosam eos ad voluptatum placeat! Rem porro magni unde
-              accusantium voluptate eos maiores deleniti id? Recusandae ut
-              quaerat suscipit iusto fuga laudantium nulla itaque esse! Enim,
-              dolorum modi laudantium culpa animi id accusamus! Commodi, odio.
-              Iste corrupti sint odit quam, provident eligendi. In, recusandae
-              cumque! Perferendis repellat nostrum nesciunt commodi quis fugiat
-              error facilis, enim sint suscipit magnam labore quasi reiciendis
-              rerum eos quo molestias vitae! Alias et nesciunt quas molestiae
-              nihil rem neque vel. Nobis, adipisci esse! Perferendis, labore.
-              Iste, laudantium neque ipsam dolores ut doloremque doloribus
-              pariatur nesciunt? Fugit, voluptates maiores ullam, cumque placeat
-              consequatur asperiores accusamus molestias, tempore quam in!
-              Aperiam, explicabo? Dolor inventore sequi magni officiis ratione
-              illo incidunt nobis ducimus libero. Aliquid, sunt nemo sequi totam
-              in reiciendis debitis, dicta repudiandae rerum ad minima fugit,
-              blanditiis nulla. Voluptates, praesentium sequi. Cumque
-              repudiandae culpa similique. Adipisci numquam optio inventore eius
-              magni cupiditate unde nam, blanditiis commodi tempore dolorum
-              iusto nulla quis vitae reiciendis ea hic, doloremque cum dolore at
-              doloribus. Cum. Id sint rem odit reprehenderit earum deserunt
-              quod, perferendis mollitia quasi autem excepturi delectus dolores
-              aliquid eligendi cupiditate. Eligendi explicabo neque illum
-              pariatur consectetur iusto dolores cumque, ex molestiae quae?
-              Excepturi necessitatibus, saepe est nobis sequi quaerat earum.
-              Sequi, ratione! Fugiat commodi impedit perferendis facilis tempora
-              similique magni sequi at nesciunt, unde, tenetur dolorem iste
-              veniam doloribus. Magnam, eligendi quae?
+      <div className=" border-solid border-2 border-gray-100 h-[100%] md:h-full mt-4 rounded-3xl">
+        <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col p-10 mb-0 ">
+             <div className="">
+              <h1 className="text-3xl font-[600] text-[#0051A9]">About Us</h1>
+              <div className="pt-4">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Laboriosam blanditiis deleniti unde rerum minus! Aliquid, sed
+                dolorem. Enim voluptate quasi labore doloribus, adipisci
+                exercitationem obcaecati quaerat ut voluptatibus sapiente
+                doloremque. Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Facere nemo blanditiis, repellendus quam odit dolorum!
+                Illo, enim quidem! Amet, quia deleniti. Sunt nesciunt minima rem
+                asperiores tempore eligendi voluptate a. Velit rem, nostrum
+                accusantium, hic repellendus laborum tempore ipsa, quidem
+                temporibus est id. Facilis tenetur earum in ipsum provident
+                quidem rem consequuntur nulla repellendus. Beatae cupiditate
+                cumque aliquid ad reiciendis. Quibusdam delectus aspernatur nam
+                magnam recusandae atque in libero veritatis fuga blanditiis
+                error, animi a, laboriosam eos ad voluptatum placeat! Rem porro
+                magni unde accusantium voluptate eos maiores deleniti id?
+                Recusandae ut quaerat suscipit iusto fuga laudantium nulla
+                itaque esse! Enim, dolorum modi laudantium culpa animi id
+                accusamus! Commodi, odio. Iste corrupti sint odit quam,
+                provident eligendi. In, recusandae
+              </div>
+            </div>
+
+            <div className="p-2">
+              <h1 className="text-2xl font-bold">Our Services</h1>
+              <div>
+                <ServiceCard />
+              </div>
             </div>
           </div>
 
-          <div className=" flex items-center justify-center flex-col ml-auto mr-auto ">
-            <h1 className="text-3xl font-light p-2">
-              Wanaa see projects or want to create one
-            </h1>
-            <Link href="/projects" >
-              <button className="p-2 m-1 bg-black  text-white border-solid border-2 h-[100%] inline-block rounded-lg">
-                click here
-              </button>
-            </Link>
+          {/* right component */}
+          <div className="h-full md:h-screen mx-16 p-16 bg-[#F8FBFF] ">
+            {/* icons */}
+
+            <div className="flex flex-row space-x-5 mt-16 ">
+              <div className="p-2">
+                {" "}
+                <BsFacebook
+                  size="30"
+                  className="text-[#0671e0] hover:cursor-pointer"
+                />{" "}
+              </div>
+              <div className="p-2">
+                {" "}
+                <BsInstagram size="30" className="text-[#0671e0]" />{" "}
+              </div>
+              <div className="p-2">
+                {" "}
+                <BsTelegram size="30" className="text-[#0671e0]" />{" "}
+              </div>
+            </div>
+            <div className="text-center justify-center mt-6 text-blue-700 text-xl font-semibold ">
+              Connect With us{" "}
+            </div>
+
+            <div className="mt-44  w-[100%]">
+              <Image src={people} height={400} width={400} alt="none" />
+            </div>
           </div>
         </div>
       </div>

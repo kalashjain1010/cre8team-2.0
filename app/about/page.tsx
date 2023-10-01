@@ -7,8 +7,9 @@ import Link from "next/link";
 import { BsFacebook } from "react-icons/bs";
 import { BsTelegram } from "react-icons/bs";
 import { BsInstagram } from "react-icons/bs";
+
 import {IoMdPeople} from "react-icons/io"
-// import people from "../../public/people.png"
+import people from "../../public/people.png"
 import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
 
@@ -17,10 +18,10 @@ function AboutPage() {
     <>
       <div className=" border-solid border-2 border-gray-100  mt-4 rounded-3xl">
         <div className="flex flex-col lg:flex-row">
-          <div className="flex flex-col p-10 mb-0 ">
+          <div className="flex flex-col p-10  ">
              <div className="">
               <h1 className="text-3xl font-[600] text-[#0051A9]">About Us</h1>
-              <div className="pt-4">
+              <div className="pt-4 ">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Laboriosam blanditiis deleniti unde rerum minus! Aliquid, sed
                 dolorem. Enim voluptate quasi labore doloribus, adipisci
@@ -56,24 +57,24 @@ function AboutPage() {
                 {" "}
                 <BsFacebook
                   size="30"
-                  className="text-[#0671e0] hover:cursor-pointer"
+                  className="text-[#0671e0] hover:cursor-pointer  hover:text-blue-800"
                 />{" "}
               </div>
               <div className="p-2">
                 {" "}
-                <BsInstagram size="30" className="text-[#0671e0]" />{" "}
+                <BsInstagram size="30" className="text-[#0671e0]  hover:cursor-pointer hover:text-blue-800" />{" "}
               </div>
               <div className="p-2">
                 {" "}
-                <BsTelegram size="30" className="text-[#0671e0]" />{" "}
+                <BsTelegram size="30" className="text-[#0671e0] hover:cursor-pointer  hover:text-blue-800" />{" "}
               </div>
             </div>
             <div className="text-center justify-center mt-6 text-blue-700 text-xl font-semibold ">
               Connect With us{" "}
             </div>
 
-            <div className="mt-44  w-[100%]">
-              {/* <Image src={people} height={400} width={400} alt="none" /> */}
+            <div className= "flex xl:mt-44 text-center justify-center ">
+              <Image src={people} height={400} width={400} alt="none" />
             </div>
           </div>
         </div>
